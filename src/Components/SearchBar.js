@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SearchBar.css';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 class SearchBar extends Component {
 	constructor(props) {
@@ -23,9 +24,12 @@ class SearchBar extends Component {
 	render() {
 		const { searchQuery } = this.state;
 		return (
-			<div>
+			<div className="rolloverIcons">
 				<form onSubmit={this.handleSubmit}>
-					<input
+					<TextField
+						id="outlined-basic"
+						label="search"
+						variant="outlined"
 						className="searchBar"
 						type="text"
 						value={searchQuery}
@@ -33,10 +37,10 @@ class SearchBar extends Component {
 						onChange={this.handleChange}
 					/>
 				</form>
-				<Button variant="contained" color="primary" size="small">
+				<Button variant="contained" color="primary" size="large">
 					Surprise Me
 				</Button>
-				<Button variant="contained" color="primary" size="small">
+				<Button variant="contained" color="primary" size="large">
 					Search
 				</Button>
 			</div>

@@ -1,3 +1,8 @@
 .searchBar {
-    width: 800px;
+	width: 500px;
 }
+
+.rolloverIcons Button {
+	margin: 20px;
+}
+/* This will add a margin to every <Button> item inside the rollovericons class. */
