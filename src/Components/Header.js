@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Header.css';
-import stock from '../stock.jpg';
+import stock from '../stock.nosync.jpg';
 
 class Header extends Component {
 	render() {

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './SearchBar.css';
+import Button from '@material-ui/core/Button';
 
 class SearchBar extends Component {
 	constructor(props) {
@@ -23,10 +25,20 @@ class SearchBar extends Component {
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit}>
-					<input type="text" value={searchQuery} placeholder="search recipes" onChange={this.handleChange} />
+					<input
+						className="searchBar"
+						type="text"
+						value={searchQuery}
+						placeholder="search recipes"
+						onChange={this.handleChange}
+					/>
 				</form>
-				<button>Surprise Me</button>
-				<button>Search</button>
+				<Button variant="contained" color="primary" size="small">
+					Surprise Me
+				</Button>
+				<Button variant="contained" color="primary" size="small">
+					Search
+				</Button>
 			</div>
 		);
 	}
