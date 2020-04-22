@@ -2,15 +2,17 @@ import React from 'react';
 import './App.css';
 import SearchBar from './Components/SearchBar';
 import Header from './Components/Header';
-import LongMenu from './Components/NavBar';
+import PrimarySearchAppBar from './Components/NavBar';
 
 function App() {
 	return (
-		<div className="App">
-			<LongMenu />
-			<Header />
-			<SearchBar />
-		</div>
+		<section>
+			<div className="App">
+				<PrimarySearchAppBar />
+				<Header />
+				<SearchBar />
+			</div>
+		</section>
 	);
 }
 
