@@ -1,7 +1,7 @@
-.input {
+/* .input {
     width: 500px;
     height: 70px;
-}
+} */
 
 .signup-button {
     outline: none;
@@ -11,10 +11,17 @@
     text-align: center;
 }
 
+.input-box {
+    width: 500px;
+    height: 60px;
+}
+
 #modal-box {
     border-radius: 25px;
     border: 2px solid white;
+    /* "outline: none" removes focus outline around selected field */
     outline: none;
+    /* width: 500px; */
     /* padding: 20px;
     width: 200px;
     height: 150px; */
