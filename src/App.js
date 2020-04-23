@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import SearchBar from './Components/SearchBar';
-import Header from './Components/Header';
-import PrimarySearchAppBar from './Components/NavBar';
+import Header from './Components/Home/Header';
+import SearchBar from './Components/Home/SearchBar';
+import PrimarySearchAppBar from './Components/NavBar/NavBar';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 function App() {
 	return (
@@ -11,6 +12,10 @@ function App() {
 				<PrimarySearchAppBar />
 				<Header />
 				<SearchBar />
+				{/* <Switch>
+					<Route exact path="/" component={Signup} />
+					<Route exact path="/dashboard" component={Home} />
+				</Switch> */}
 			</div>
 		</section>
 	);

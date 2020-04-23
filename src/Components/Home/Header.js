@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './Header.css';
-import stock from '../stock.nosync.jpg';
+import banner from '../Home/header.nosync.jpg';
 
 class Header extends Component {
 	render() {
 		return (
 			<div>
-				<img className="header-image" src={stock} alt="" />
+				<img className="header-image" src={banner} alt="" />
 			</div>
 		);
 	}
