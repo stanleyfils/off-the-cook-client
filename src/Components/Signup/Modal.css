@@ -1,0 +1,21 @@
+.input {
+    width: 500px;
+    height: 70px;
+}
+
+.signup-button {
+    outline: none;
+}
+
+.signup-text {
+    text-align: center;
+}
+
+#modal-box {
+    border-radius: 25px;
+    border: 2px solid white;
+    outline: none;
+    /* padding: 20px;
+    width: 200px;
+    height: 150px; */
+  }
