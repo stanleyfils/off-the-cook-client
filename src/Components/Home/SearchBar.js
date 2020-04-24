@@ -28,7 +28,7 @@ class SearchBar extends Component {
 				<form onSubmit={this.handleSubmit}>
 					<TextField
 						id="outlined-basic"
-						label="search"
+						label="search..."
 						variant="outlined"
 						className="searchBar"
 						type="text"
