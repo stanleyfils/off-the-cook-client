@@ -1,8 +1,5 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Home/Header';
-import SearchBar from './Components/Home/SearchBar';
-import PrimarySearchAppBar from './Components/NavBar/NavBar';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from './Components/Home/Home';
 
@@ -12,7 +9,7 @@ function App() {
 			<div className="App">
 				<Switch>
 					<Route exact path="/" component={Home} />
-					{/* <Route exact path="/dashboard" component={Home} /> */}
+					{/* <Route exact path="/signup" component={Signup} /> */}
 				</Switch>
 			</div>
 		</section>

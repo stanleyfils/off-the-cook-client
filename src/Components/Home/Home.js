@@ -1,3 +1,5 @@
+// All files specific to Home Page are rendered here
+
 import React from 'react';
 import './Home.css';
 import Header from './Header';
