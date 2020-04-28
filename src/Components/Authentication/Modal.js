@@ -39,7 +39,7 @@ export default function TransitionsModal() {
       <button className="signup-button" type="button" onClick={handleOpen}>
         Sign Up
       </button>
-      {/* <SignupButton type="button" onClick={handleOpen} /> */}
+      <SignupButton type="button" onClick={handleOpen} />
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

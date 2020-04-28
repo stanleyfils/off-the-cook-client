@@ -1,5 +1,4 @@
-// modal signup form code
-
+// modal signup form
 // signup modal button located in NavBar
 
 import React from "react";
@@ -26,14 +25,14 @@ function Signup() {
   return (
     <AuthContext.Consumer>
       {(context) => {
-        console.log(context);
+        console.log("testing context!", context);
 
         const {
           formSignup: { username, email, password },
           message,
           isLoggedIn,
         } = context.state;
-
+        console.log("signup", username, email, password);
         const { handleSignupInput, handleSignupSubmit } = context;
         return (
           <>
@@ -47,57 +46,61 @@ function Signup() {
                   noValidate
                   autoComplete="off"
                 >
-                  <div>
-                    <label htmlFor="username">
-                      <TextField
-                        className="input"
-                        id="outlined-basic username"
-                        label="username"
-                        variant="outlined"
-                        type="text"
-                        name="username"
-                        value={username}
-                        onChange={handleSignupInput}
-                      />
-                    </label>
-                  </div>
-
-                  <div>
+                  {/* <div> */}
+                  <label htmlFor="username">
                     <TextField
                       className="input"
-                      id="outlined-basic email"
-                      label="email"
+                      id="outlined-basic username"
+                      label="username"
                       variant="outlined"
-                      type="email"
-                      name="email"
-                      value={email}
+                      type="text"
+                      name="username"
+                      value={username}
                       onChange={handleSignupInput}
                     />
-                  </div>
+                  </label>
+                  <br />
 
-                  <div>
-                    <TextField
-                      className="input"
-                      id="outlined-basic password"
-                      label="password"
-                      variant="outlined"
-                      type="password"
-                      name="password"
-                      value={password}
-                      onChange={handleSignupInput}
-                    />
-                  </div>
-                  <div>
-                    <Button
-                      //   className="signup-submit"
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                      type="submit"
-                    >
-                      Submit
-                    </Button>
-                  </div>
+                  {/* </div> */}
+
+                  {/* <div> */}
+                  <TextField
+                    className="input"
+                    id="outlined-basic email"
+                    label="email"
+                    variant="outlined"
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleSignupInput}
+                  />
+                  {/* </div> */}
+                  <br />
+
+                  {/* <div> */}
+                  <TextField
+                    className="input"
+                    id="outlined-basic password"
+                    label="password"
+                    variant="outlined"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handleSignupInput}
+                  />
+                  {/* </div> */}
+                  <br />
+                  {/* <div> */}
+                  <Button
+                    //   className="signup-submit"
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                  {/* </div> */}
                 </form>
               </div>
             )}
