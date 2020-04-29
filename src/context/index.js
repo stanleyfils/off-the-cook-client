@@ -44,7 +44,7 @@ class AuthProvider extends React.Component {
       target: { name, value },
     } = e;
 
-    // console.log("From handleSignupInput:", name, value);
+    console.log("From handleSignupInput:", name, value);
     this.setState((prevState) => ({
       ...prevState,
       formSignup: {
@@ -60,7 +60,7 @@ class AuthProvider extends React.Component {
 
     // AUTH_SERVICE.signup({ username, email, password })
     // the same as above             ^^^^
-    AUTH_SERVICE.signup(this.state.formsignup)
+    AUTH_SERVICE.signup(this.state.formSignup)
       .then((responseFromServer) => {
         console.log("res from server: ", responseFromServer);
         const {

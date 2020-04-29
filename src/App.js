@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Home from "./Components/Home/Home";
+import Landing from "./Components/Landing/Landing";
 import Signup from "./Components/Authentication/Signup";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <section>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Landing} />
           <Route exact path="/signup" component={Signup} />
         </Switch>
       </div>
