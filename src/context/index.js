@@ -15,16 +15,16 @@ class AuthProvider extends React.Component {
       email: "",
       password: "",
     },
-    currentuser: {},
+    currentUser: {},
     isLoggedIn: false,
     message: null,
   };
 
   componentDidMount() {
-    console.log("this is a test");
+    // console.log("this is a test");
     AUTH_SERVICE.getUser()
       .then((responseFromServer) => {
-        console.log("res: ", responseFromServer);
+        // console.log("res: ", responseFromServer);
 
         const { user } = responseFromServer.data;
 
@@ -35,7 +35,7 @@ class AuthProvider extends React.Component {
         }));
       })
       .catch((err) =>
-        console.log("Error while getting the user: ", err.response)
+        console.log("Error while getting the user: ", err.response.data)
       );
   }
 
@@ -81,7 +81,7 @@ class AuthProvider extends React.Component {
         this.props.history.push("/home");
       })
       .catch((err) => {
-        console.log("rr  in signup service: ", err.response);
+        console.log("err  in signup service: ", err.response);
         if (err.response && err.response.data) {
           this.setState((prevState) => ({
             ...prevState,
