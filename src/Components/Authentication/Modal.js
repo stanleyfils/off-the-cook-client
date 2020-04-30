@@ -4,11 +4,13 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Signup from "./Signup";
+import Login from "./Login";
 // import Link from "./Login";
 import "./Modal.css";
 import SignupButton from "./SignupButton";
+import LoginButton from "./LoginButton";
 import { Link } from "react-router-dom";
-import Login from "./Login";
+import { AuthContext } from "../../context/index";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -37,35 +39,44 @@ export default function TransitionsModal() {
   };
 
   return (
-    <div>
-      {/* pass prop from signupButton.js to cal onClick method */}
-      <SignupButton type="button" handleOpen={handleOpen} />
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div id="modal-box" className={classes.paper}>
-            <h2 className="signup-text" id="transition-modal-title">
-              Sign Up
-            </h2>
-            <Signup className="input" />
-            <p id="transition-modal-description">
-              Already have an account? <a href={Login}>Log In</a>{" "}
-            </p>
-            {/* <Link to="/login">Log In</Link> */}
-            {/* <button>Log In</button> */}
-          </div>
-        </Fade>
-      </Modal>
-    </div>
+    <AuthContext.Consumer>
+      {(context) => (
+        <div>
+          {/* pass prop from signupButton.js to cal onClick method */}
+          {context.state.isLoggedIn ? null : (
+            <>
+              <SignupButton type="button" handleOpen={handleOpen} />
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open}>
+                  <div id="modal-box" className={classes.paper}>
+                    <h2 className="signup-text" id="transition-modal-title">
+                      Sign Up
+                    </h2>
+                    <Signup className="input" />
+                    <p id="transition-modal-description">
+                      Already have an account?
+                    </p>
+                    <LoginButton type="button" />
+                    {/* <Link to="/login">Log In</Link> */}
+                    {/* <button>Log In</button> */}
+                  </div>
+                </Fade>
+              </Modal>
+            </>
+          )}
+        </div>
+      )}
+    </AuthContext.Consumer>
   );
 }
