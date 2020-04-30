@@ -4,9 +4,11 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Signup from "./Signup";
-import Link from "./Login";
+// import Link from "./Login";
 import "./Modal.css";
 import SignupButton from "./SignupButton";
+import { Link } from "react-router-dom";
+import Login from "./Login";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -36,10 +38,8 @@ export default function TransitionsModal() {
 
   return (
     <div>
-      <button className="signup-button" type="button" onClick={handleOpen}>
-        Sign Up
-      </button>
-      <SignupButton type="button" onClick={handleOpen} />
+      {/* pass prop from signupButton.js to cal onClick method */}
+      <SignupButton type="button" handleOpen={handleOpen} />
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -58,8 +58,11 @@ export default function TransitionsModal() {
               Sign Up
             </h2>
             <Signup className="input" />
-            <p id="transition-modal-description">Already have an account?</p>
-            <Link to="/login" />
+            <p id="transition-modal-description">
+              Already have an account? <a href={Login}>Log In</a>{" "}
+            </p>
+            {/* <Link to="/login">Log In</Link> */}
+            {/* <button>Log In</button> */}
           </div>
         </Fade>
       </Modal>

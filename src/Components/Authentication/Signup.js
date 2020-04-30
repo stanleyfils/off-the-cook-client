@@ -37,7 +37,7 @@ function Signup() {
         return (
           <>
             {isLoggedIn ? (
-              <Redirect to="/" />
+              <Redirect to="/home" />
             ) : (
               <div>
                 <form
@@ -46,24 +46,17 @@ function Signup() {
                   noValidate
                   autoComplete="off"
                 >
-                  {/* <div> */}
-                  <label htmlFor="username">
-                    <TextField
-                      className="input"
-                      id="outlined-basic username"
-                      label="username"
-                      variant="outlined"
-                      type="text"
-                      name="username"
-                      value={username}
-                      onChange={handleSignupInput}
-                    />
-                  </label>
+                  <TextField
+                    className="input"
+                    id="outlined-basic username"
+                    label="username"
+                    variant="outlined"
+                    type="text"
+                    name="username"
+                    value={username}
+                    onChange={handleSignupInput}
+                  />
                   <br />
-
-                  {/* </div> */}
-
-                  {/* <div> */}
                   <TextField
                     className="input"
                     id="outlined-basic email"
@@ -74,10 +67,7 @@ function Signup() {
                     value={email}
                     onChange={handleSignupInput}
                   />
-                  {/* </div> */}
                   <br />
-
-                  {/* <div> */}
                   <TextField
                     className="input"
                     id="outlined-basic password"
@@ -88,9 +78,7 @@ function Signup() {
                     value={password}
                     onChange={handleSignupInput}
                   />
-                  {/* </div> */}
                   <br />
-                  {/* <div> */}
                   <Button
                     //   className="signup-submit"
                     variant="contained"
@@ -100,7 +88,6 @@ function Signup() {
                   >
                     Submit
                   </Button>
-                  {/* </div> */}
                 </form>
               </div>
             )}

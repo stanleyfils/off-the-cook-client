@@ -12,12 +12,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignupButton() {
+export default function SignupButton(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" color="secondary" size="medium">
+      <Button
+        variant="contained"
+        color="secondary"
+        size="medium"
+        onClick={props.handleOpen}
+      >
         Signup
       </Button>
     </div>
