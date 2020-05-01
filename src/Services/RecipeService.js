@@ -1,6 +1,8 @@
+// get Recipe List
+
 import React, { Component } from "react";
 import axios from "axios";
-import AddRecipe from "./AddRecipe";
+import AddRecipe from "./AddRecipeService";
 import { Route, Switch, Link } from "react-router-dom";
 
 class RecipeList extends Component {
@@ -21,7 +23,7 @@ class RecipeList extends Component {
   // after we delete the trip from the db we will need to then call the function which gets all the trips from the db in order to update the list with the deleted trip missing.
   deleteRecipe = (recipeId) => {
     axios
-      .post(`http://localhost:3001/trips/${recipeId}/delete`)
+      .post(`http://localhost:3001/recipes/${recipeId}/delete`)
       .then((messageAfterDeletingRecipe) => {
         console.log({ messageAfterDeletingRecipe });
         this.getRecipeList();
@@ -49,13 +51,14 @@ class RecipeList extends Component {
             <h2>
               <Link to={`/recipes/${recipe._id}`}>{recipe.recipeName}</Link>
             </h2>
-            {/* <h2>{recipe.recipeName}</h2> */}
-            <h3>Title: {recipe.recipeTitle}</h3>
+            {/* <h2>{recipe.Title}</h2> */}
+            <h3>Title: {recipe.title}</h3>
             <h4>Prep Time: {recipe.prepTime}</h4>
             <h4>Cook Time: {recipe.cookTime}</h4>
-            <h4>Ingredients: {recipe.recipeIngredients}</h4>
-            <h4>Directions: {recipe.recipeDirections}</h4>
-            <h4>Nutrition: {recipe.recipeNutrition}</h4>
+            <h4>Servings: {recipe.servings}</h4>
+            <h4>Ingredients: {recipe.ingredients}</h4>
+            <h4>Directions: {recipe.directions}</h4>
+            <h4>Nutrition: {recipe.nutrition}</h4>
 
             <button onClick={() => this.deleteRecipe(recipe._id)}>
               Delete
