@@ -5,13 +5,13 @@ import axios from "axios";
 
 class AddRecipe extends Component {
   state = {
-    recipeTitle: "",
-    recipePrepTime: "",
-    recipeCookTime: "",
-    recipeServings: "",
-    recipeIngredients: "",
-    recipeDirections: "",
-    recipeNutrition: "",
+    title: "",
+    prepTime: "",
+    cookTime: "",
+    servings: "",
+    ingredients: "",
+    directions: "",
+    nutrition: "",
   };
 
   submit = (event) => {
@@ -24,13 +24,13 @@ class AddRecipe extends Component {
 
         this.props.updateState();
         this.setState({
-          recipeTitle: "",
-          recipePrepTime: "",
-          recipeCookTime: "",
-          recipeServings: "",
-          recipeIngredients: "",
-          recipeDirections: "",
-          recipeNutrition: "",
+          title: "",
+          prepTime: "",
+          cookTime: "",
+          servings: "",
+          ingredients: "",
+          directions: "",
+          nutrition: "",
         });
       })
       .catch((err) => console.log({ err }));
@@ -48,56 +48,56 @@ class AddRecipe extends Component {
           <label>Recipe Title:</label>
           <input
             type="text"
-            name="recipeTitle"
-            value={this.state.recipeTitle}
+            name="title"
+            value={this.state.title}
             onChange={this.handleChange}
           />
           <br />
           <label>Prep Time:</label>
           <input
-            type="text"
-            name="recipePrepTime"
-            value={this.state.recipePrepTime}
+            type="number"
+            name="prepTime"
+            value={this.state.prepTime}
             onChange={this.handleChange}
           />
           <br />
           <label>Cook Time:</label>
           <input
-            type="text"
-            name="recipeCookTime"
-            value={this.state.recipeCookTime}
+            type="number"
+            name="cookTime"
+            value={this.state.cookTime}
             onChange={this.handleChange}
           />
           <br />
           <label>Servings:</label>
           <input
-            type="text"
-            name="recipeServings"
-            value={this.state.recipeServings}
+            type="number"
+            name="servings"
+            value={this.state.servings}
             onChange={this.handleChange}
           />
           <br />
           <label>Ingredients:</label>
           <input
             type="text"
-            name="recipeIngredients"
-            value={this.state.recipeIngredients}
+            name="ingredients"
+            value={this.state.ingredients}
             onChange={this.handleChange}
           />
           <br />
           <label>Directions:</label>
           <input
             type="text"
-            name="recipeDirections"
-            value={this.state.recipeDirections}
+            name="directions"
+            value={this.state.directions}
             onChange={this.handleChange}
           />
           <br />
           <label>Nutrition Facts:</label>
           <input
             type="text"
-            name="recipeNutrition"
-            value={this.state.recipeNutrition}
+            name="nutrition"
+            value={this.state.nutrition}
             onChange={this.handleChange}
           />
           <br />

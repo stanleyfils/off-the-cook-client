@@ -87,10 +87,8 @@ export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [serviceAnchorEl, setServiceAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
-  const isServiceMenuOpen = Boolean(serviceAnchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
@@ -101,25 +99,14 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleServiceMenuClose = () => {
-    setServiceAnchorEl(null);
-  };
-
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
-    handleServiceMenuClose();
   };
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  const handleServiceMenuOpen = (event) => {
-    setServiceAnchorEl(event.currentTarget);
-  };
-
-  // ********************** PROFILE MENU START ************************************
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -137,28 +124,6 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>
   );
-
-  // ********************** PROFILE MENU END ***************************************
-
-  // ********************** SERVICE MENU START *************************************
-
-  const serviceMenuId = "main-menu";
-  const renderServiceMenu = (
-    <Menu
-      anchorEl={serviceAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={serviceMenuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isServiceMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Manage Recipes</MenuItem>
-    </Menu>
-  );
-  // ********************** SERVICE MENU END ***************************************
-
-  // ********************** MOBILE MENU START **************************************
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -201,26 +166,21 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
-  // ********************** MOBILE MENU END ***************************************
-
   return (
     <AuthContext.Consumer>
       {(context) => (
         <div className={classes.grow}>
           <AppBar position="static">
             <Toolbar>
-              {/* SERVICE MENU BUTTON START */}
               <IconButton
                 edge="start"
                 className={classes.menuButton}
                 color="inherit"
                 aria-label="open drawer"
-                onClick={handleServiceMenuOpen}
+                // onClick={handleServicesMenuOpen}
               >
                 <MenuIcon />
               </IconButton>
-              {/* SERVICE MENU BUTTON END */}
-
               <Typography className={classes.title} variant="h6" noWrap>
                 Off The Cook
               </Typography>
@@ -251,8 +211,6 @@ export default function PrimarySearchAppBar() {
 							</Badge>
 						</IconButton> */}
                 <TransitionsModal />
-
-                {/* PROFILE MENU BUTTON START  */}
                 {context.state.isLoggedIn ? (
                   <IconButton
                     edge="end"
@@ -265,7 +223,6 @@ export default function PrimarySearchAppBar() {
                     <AccountCircle />
                   </IconButton>
                 ) : null}
-                {/* PROFILE MENU BUTTON END  */}
               </div>
               <div className={classes.sectionMobile}>
                 <IconButton
@@ -280,8 +237,7 @@ export default function PrimarySearchAppBar() {
               </div>
             </Toolbar>
           </AppBar>
-          {renderServiceMenu}
-          {/* {renderMobileMenu} */}
+          {renderMobileMenu}
           {renderMenu}
         </div>
       )}

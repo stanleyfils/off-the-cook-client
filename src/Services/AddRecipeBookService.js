@@ -5,8 +5,8 @@ import axios from "axios";
 
 class AddRecipeBook extends Component {
   state = {
-    recipeBookTitle: "",
-    recipeBookDescription: "",
+    title: "",
+    description: "",
   };
 
   submit = (event) => {
@@ -19,8 +19,8 @@ class AddRecipeBook extends Component {
 
         this.props.updateState();
         this.setState({
-          recipeBookTitle: "",
-          recipeBookDescription: "",
+          title: "",
+          description: "",
         });
       })
       .catch((err) => console.log({ err }));
@@ -38,16 +38,16 @@ class AddRecipeBook extends Component {
           <label>Recipe Book Title:</label>
           <input
             type="text"
-            name="recipeBookTitle"
-            value={this.state.recipeBookTitle}
+            name="title"
+            value={this.state.title}
             onChange={this.handleChange}
           />
           <br />
           <label>Prep Time:</label>
           <input
-            type="text"
-            name="recipeBookDescription"
-            value={this.state.recipeBookDescription}
+            type="number"
+            name="description"
+            value={this.state.description}
             onChange={this.handleChange}
           />
           <br />
