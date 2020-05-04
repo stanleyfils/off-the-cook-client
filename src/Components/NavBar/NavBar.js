@@ -16,7 +16,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import TransitionsModal from "../Authentication/Modal";
 import SignupButton from "../Authentication/SignupButton";
-
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/index";
 
 const useStyles = makeStyles((theme) => ({
@@ -151,9 +151,11 @@ export default function PrimarySearchAppBar() {
       keepMounted
       transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isServiceMenuOpen}
-      onClose={handleMenuClose}
+      // onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Manage Recipes</MenuItem>
+      <Link to="/recipes">
+        <MenuItem>Manage Recipes</MenuItem>
+      </Link>
     </Menu>
   );
   // ********************** SERVICE MENU END ***************************************
