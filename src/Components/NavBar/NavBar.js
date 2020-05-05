@@ -151,11 +151,12 @@ export default function PrimarySearchAppBar() {
       keepMounted
       transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isServiceMenuOpen}
-      // onClose={handleMenuClose}
+      onClose={handleMenuClose}
     >
       <Link to="/recipes">
         <MenuItem>Manage Recipes</MenuItem>
       </Link>
+      <MenuItem>Favorite Recipes</MenuItem>
     </Menu>
   );
   // ********************** SERVICE MENU END ***************************************

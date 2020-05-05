@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import AddRecipe from "./AddRecipeService";
 import { Route, Switch, Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 class RecipeList extends Component {
   state = {
@@ -52,17 +53,22 @@ class RecipeList extends Component {
               <Link to={`/recipes/${recipe._id}`}>{recipe.recipeName}</Link>
             </h2>
             {/* <h2>{recipe.Title}</h2> */}
-            <h3>Title: {recipe.title}</h3>
-            <h4>Prep Time: {recipe.prepTime}</h4>
+            <h3>{recipe.title}</h3>
+            {/* <h4>Prep Time: {recipe.prepTime}</h4>
             <h4>Cook Time: {recipe.cookTime}</h4>
             <h4>Servings: {recipe.servings}</h4>
             <h4>Ingredients: {recipe.ingredients}</h4>
             <h4>Directions: {recipe.directions}</h4>
-            <h4>Nutrition: {recipe.nutrition}</h4>
+            <h4>Nutrition: {recipe.nutrition}</h4> */}
 
-            <button onClick={() => this.deleteRecipe(recipe._id)}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              onClick={() => this.deleteRecipe(recipe._id)}
+            >
               Delete
-            </button>
+            </Button>
           </div>
         );
       })
@@ -74,7 +80,7 @@ class RecipeList extends Component {
       <div>
         {/* <AddRecipe updateState={this.newRecipeAdded} /> */}
         <hr />
-        {this.state.recipeList && this.showRecipes()}
+        {this.state.recipeList && this.showRecipe()}
       </div>
     );
   }

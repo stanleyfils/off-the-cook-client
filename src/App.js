@@ -9,6 +9,7 @@ import RecipeList from "./Services/RecipeService";
 import RecipeDetails from "./Services/RecipeDetailsService";
 import RecipeBookList from "./Services/RecipeBookService";
 import RecipeBookDetails from "./Services/RecipeBookDetailsService";
+// import SavedRecipes from "./Components/Recipes/SavedRecipes";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/recipes" component={RecipeList} />
+          {/* <Route exact path="/recipes" component={SavedRecipes} /> */}
           <Route exact path="/recipes/:recipeId" component={RecipeDetails} />
           <Route exact path="/recipeBooks" component={RecipeBookList} />
           <Route

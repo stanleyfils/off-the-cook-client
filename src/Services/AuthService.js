@@ -12,7 +12,7 @@ const service = axios.create({
 
 const AUTH_SERVICE = {
   signup(userData) {
-    console.log("I'm line 17", userData);
+    // console.log("I'm line 17", userData);
 
     // const { username, email, password } = req.body; = userData
     //post must always have a 2nd argument. Make empty object if necessary
@@ -26,7 +26,7 @@ const AUTH_SERVICE = {
   },
   // this is the only get route. Get routes never have 2nd argument so empty onject is required.
   getUser() {
-    console.log("hellooooo");
+    // console.log("hellooooo");
     return service.get("/api/isLoggedIn");
   },
 };

@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import AddRecipeBook from "./AddRecipeBookService";
 import { Route, Switch, Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 class RecipeBookList extends Component {
   state = {
@@ -54,11 +55,16 @@ class RecipeBookList extends Component {
               </Link>
             </h2>
             {/* <h2>{recipeBook.recipeBookTitle}</h2> */}
-            <h3>Title: {recipeBook.title}</h3>
-            <h4>Description: {recipeBook.description}</h4>
-            <button onClick={() => this.deleteRecipeBook(recipeBook._id)}>
+            <h3>{recipeBook.title}</h3>
+            {/* <h4>Description: {recipeBook.description}</h4> */}
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              onClick={() => this.deleteRecipeBook(recipeBook._id)}
+            >
               Delete
-            </button>
+            </Button>
           </div>
         );
       })
