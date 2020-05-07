@@ -2,46 +2,37 @@ import React, { Component } from "react";
 import "./SearchBar.css";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import SpoonacularService from "../../Services/RecipeService";
 
 class SearchBar extends Component {
-  state = {
-    searchRecipes: [],
-  };
-
-  // to get anything from any API (our or 3rd party) we have to use AXIOS (which we do in services)
-  // so we have to place the service in the componentDidMount()
-  componentDidMount() {
-    SpoonacularService.getRecipes()
-      .then((resFromApi) => {
-        // console.log(resFromApi);
-        this.setState({ searchRecipes: resFromApi.data });
-      })
-      .catch((err) => console.log(err));
+  constructor(props) {
+    super(props);
+    this.state = { searchQuery: "" };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ searchRecipes: event.target.value });
+    this.setState({ searchQuery: event.target.value });
   }
 
   handleSubmit(event) {
     // alert(`You typed: ${this.state.search}`);
     event.preventDefault();
-    this.setState({ searchRecipes: "" });
+    this.setState({ searchQuery: "" });
   }
 
   render() {
-    const { searchRecipes } = this.state;
+    const { searchQuery } = this.state;
     return (
       <div className="rolloverIcons">
-        <form onSubmit={(event) => this.handleSubmit(event)}>
+        <form onSubmit={this.handleSubmit}>
           <TextField
             id="outlined-basic"
             label="search..."
             variant="outlined"
             className="searchBar"
             type="text"
-            value={searchRecipes}
+            value={searchQuery}
             placeholder="search recipes"
             onChange={this.handleChange}
           />

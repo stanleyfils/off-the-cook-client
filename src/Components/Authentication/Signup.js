@@ -1,5 +1,5 @@
 // modal signup form
-// signup modal button located in NavBar
+// signup modal button located in Navbar
 
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";

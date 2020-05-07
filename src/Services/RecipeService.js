@@ -6,6 +6,24 @@ import AddRecipe from "./AddRecipeService";
 import { Route, Switch, Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
+// ***************REQUIRED FOR EXTERNAL API****************************
+const baseURL = process.env.REACT_APP_SERVER_POINT;
+
+const service = axios.create({
+  baseURL,
+  withCredentials: true,
+});
+
+const SpoonacularService = {
+  getRecipes: () => {
+    return service
+      .get("./complexSearch")
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+  },
+};
+
+// ******************LOCAL API CODE**********************************
 class RecipeList extends Component {
   state = {
     recipeList: [],
@@ -86,4 +104,4 @@ class RecipeList extends Component {
   }
 }
 
-export default RecipeList;
+export { RecipeList, SpoonacularService };

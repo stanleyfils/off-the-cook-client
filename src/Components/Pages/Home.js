@@ -1,14 +1,13 @@
 // All files specific to Home Page are rendered here
-// Add App summary and User Guide
 
 import React from "react";
-import "./Landing.css";
-import Header from "./Header";
-import SearchBar from "./SearchBar";
-import PrimarySearchAppBar from "../NavBar/NavBar";
+import "./Home.css";
+import Header from "../Home/Header";
+import SearchBar from "../Home/SearchBar";
+import PrimarySearchAppBar from "../Navbar/Navbar";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-function Landing() {
+function Home() {
   return (
     <section>
       <div className="App">
@@ -20,4 +19,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default Home;

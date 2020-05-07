@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Landing from "./Components/Landing/Landing";
-import Home from "./Components/Home/Home";
+import Landing from "./Components/Pages/Landing";
+import Home from "./Components/Pages/Home";
 import Signup from "./Components/Authentication/Signup";
 import Login from "./Components/Authentication/Login";
-import RecipeList from "./Services/RecipeService";
+import { RecipeList, SpoonacularService } from "./Services/RecipeService";
 import RecipeDetails from "./Services/RecipeDetailsService";
 import RecipeBookList from "./Services/RecipeBookService";
 import RecipeBookDetails from "./Services/RecipeBookDetailsService";
@@ -24,6 +24,7 @@ function App() {
           {/* <Route exact path="/recipes" component={SavedRecipes} /> */}
           <Route exact path="/recipes/:recipeId" component={RecipeDetails} />
           <Route exact path="/recipeBooks" component={RecipeBookList} />
+          <Route exact path="/searchRecipes" component={SpoonacularService} />
           <Route
             exact
             path="/recipeBooks/:recipeBookId"
