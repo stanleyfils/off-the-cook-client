@@ -11,14 +11,14 @@ class SearchBar extends Component {
 
   // to get anything from any API (our or 3rd party) we have to use AXIOS (which we do in services)
   // so we have to place the service in the componentDidMount()
-  componentDidMount() {
-    SpoonacularService.getRecipes()
-      .then((resFromApi) => {
-        // console.log(resFromApi);
-        this.setState({ searchRecipes: resFromApi.data });
-      })
-      .catch((err) => console.log(err));
-  }
+  //   componentDidMount() {
+  //     SpoonacularService.getRecipes()
+  //       .then((resFromApi) => {
+  //         // console.log(resFromApi);
+  //         this.setState({ searchRecipes: resFromApi.data });
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
 
   handleChange(event) {
     this.setState({ searchRecipes: event.target.value });

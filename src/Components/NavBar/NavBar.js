@@ -15,7 +15,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import TransitionsModal from "../Authentication/Modal";
-import SignupButton from "../Authentication/SignupButton";
+// import SignupButton from "../Authentication/SignupButton";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/index";
 
@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function Navbar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -227,7 +227,7 @@ export default function PrimarySearchAppBar() {
               <Typography className={classes.title} variant="h6" noWrap>
                 Off The Cook
               </Typography>
-              {/* NavBar search bar. Not currently active */}
+              {/* Navbar search bar. Not currently active */}
               {/* <div className={classes.search}>
 						<div className={classes.searchIcon}>
 							<SearchIcon />

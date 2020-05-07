@@ -5,14 +5,18 @@ import React from "react";
 import "./Landing.css";
 import Header from "../Landing/Header";
 import SearchBar from "../Landing/SearchBar";
-import PrimarySearchAppBar from "../Navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
 import { Switch, Route, Redirect } from "react-router-dom";
+import WelcomeMessage from "../Landing/WelcomeMessage";
 
 function Landing() {
   return (
     <section>
       <div className="App">
-        <PrimarySearchAppBar />
+        <Navbar />
+        <section>
+          <WelcomeMessage />
+        </section>
         <Header />
         <SearchBar />
       </div>

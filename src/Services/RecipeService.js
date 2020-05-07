@@ -104,4 +104,4 @@ class RecipeList extends Component {
   }
 }
 
-export { RecipeList, SpoonacularService };
+export default RecipeList;

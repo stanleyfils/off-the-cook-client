@@ -4,14 +4,14 @@ import React from "react";
 import "./Home.css";
 import Header from "../Home/Header";
 import SearchBar from "../Home/SearchBar";
-import PrimarySearchAppBar from "../Navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 function Home() {
   return (
     <section>
       <div className="App">
-        <PrimarySearchAppBar />
+        <Navbar />
         <Header />
         <SearchBar />
       </div>
