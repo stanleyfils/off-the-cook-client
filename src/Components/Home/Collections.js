@@ -28,18 +28,6 @@ export default function Collections() {
         </div>
       </section>
       {/* <hr className="hrTag" /> */}
-      <div>
-        <img className="footer-image" src={Footer} alt="" />
-      </div>
-      {/* <section className="sectionBackground">
-        <h2>Menus</h2> */}
-      {/* <div className={classes.root}> */}
-      {/* <div>
-          <Icon className="iconButton" color="primary" style={{ fontSize: 50 }}>
-            add_circle
-          </Icon>
-        </div>
-      </section> */}
     </>
   );
 }

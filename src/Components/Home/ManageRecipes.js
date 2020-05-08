@@ -7,7 +7,7 @@ export class ManageRecipes extends Component {
       <div>
         <h1>Manage Recipes</h1>
         <Button variant="contained" color="primary" size="small">
-          See recipes
+          Add Recipe Book
         </Button>
         <Button variant="contained" color="primary" size="small">
           Add Recipe

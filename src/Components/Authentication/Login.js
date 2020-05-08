@@ -61,7 +61,7 @@ function Login() {
           message,
           isLoggedIn,
         } = context.state;
-        console.log("login", email, password);
+        // console.log("login", email, password);
         const { handleSignupInput, handleSignupSubmit } = context;
         return (
           <>
@@ -70,7 +70,7 @@ function Login() {
             ) : (
               <div>
                 <form
-                  onSubmit={handleSignupSubmit}
+                  onClick={handleSignupSubmit}
                   className={classes.root}
                   noValidate
                   autoComplete="off"

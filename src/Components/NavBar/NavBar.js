@@ -123,7 +123,7 @@ export default function Navbar() {
   // ********************** PROFILE MENU START ************************************
 
   const menuId = "primary-search-account-menu";
-  const renderMenu = (
+  const renderMenu = (logout) => (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
@@ -132,10 +132,11 @@ export default function Navbar() {
       transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
+      // onClick={handleLogout}
     >
       <MenuItem onClick={handleMenuClose}>Dashboard</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+      <MenuItem onClick={logout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -157,7 +158,7 @@ export default function Navbar() {
       <Link to="/recipes">
         <MenuItem>Manage Recipes</MenuItem>
       </Link>
-      <MenuItem>Favorite Recipes</MenuItem>
+      {/* <MenuItem>Favorite Recipes</MenuItem> */}
     </Menu>
   );
   // ********************** SERVICE MENU END ***************************************
@@ -175,7 +176,7 @@ export default function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
             <MailIcon />
@@ -190,7 +191,7 @@ export default function Navbar() {
           </Badge>
         </IconButton>
         <p>Notifications</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -288,7 +289,7 @@ export default function Navbar() {
           </AppBar>
           {renderServiceMenu}
           {/* {renderMobileMenu} */}
-          {renderMenu}
+          {renderMenu(context.handleLogout)}
         </div>
       )}
     </AuthContext.Consumer>

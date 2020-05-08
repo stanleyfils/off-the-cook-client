@@ -12,45 +12,41 @@ class AddRecipe extends Component {
     ingredients: "",
     directions: "",
     nutrition: "",
+    bookId: "",
   };
 
-  submit = (event) => {
-    event.preventDefault();
-
-    axios
-      .post("http://localhost:3001/recipes", this.state)
-      .then((newlyCreatedRecipeFromAPI) => {
-        console.log({ newlyCreatedRecipeFromAPI });
-
-        this.props.updateState();
-        this.setState({
-          title: "",
-          prepTime: "",
-          cookTime: "",
-          servings: "",
-          ingredients: "",
-          directions: "",
-          nutrition: "",
-        });
-      })
-      .catch((err) => console.log({ err }));
-  };
-
-  handleChange = (event) => {
+  handleInput = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+
+  createRecipe = (event) => {
+    event.preventDefault();
+    this.props.addNewRecipe(this.state);
+  };
+
+  // research
+  handleSelectChange = (event) => {
+    const { value } = event.target;
+    if (value === "new") {
+      this.props.history.push("/new-recipebook");
+    } else {
+      this.setState({
+        bookID: value,
+      });
+    }
   };
 
   render() {
     return (
       <div>
-        <form onSubmit={this.submit}>
+        <form onSubmit={(event) => this.createRecipe(event)}>
           <label>Recipe Title:</label>
           <input
             type="text"
             name="title"
             value={this.state.title}
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <br />
           <label>Prep Time:</label>
@@ -58,7 +54,7 @@ class AddRecipe extends Component {
             type="number"
             name="prepTime"
             value={this.state.prepTime}
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <br />
           <label>Cook Time:</label>
@@ -66,7 +62,7 @@ class AddRecipe extends Component {
             type="number"
             name="cookTime"
             value={this.state.cookTime}
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <br />
           <label>Servings:</label>
@@ -74,7 +70,7 @@ class AddRecipe extends Component {
             type="number"
             name="servings"
             value={this.state.servings}
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <br />
           <label>Ingredients:</label>
@@ -82,7 +78,7 @@ class AddRecipe extends Component {
             type="text"
             name="ingredients"
             value={this.state.ingredients}
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <br />
           <label>Directions:</label>
@@ -90,7 +86,7 @@ class AddRecipe extends Component {
             type="text"
             name="directions"
             value={this.state.directions}
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <br />
           <label>Nutrition Facts:</label>
@@ -98,10 +94,10 @@ class AddRecipe extends Component {
             type="text"
             name="nutrition"
             value={this.state.nutrition}
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <br />
-          <input type="submit" value="Add Recipe" />
+          <button type="submit" value="Add Recipe" />
         </form>
       </div>
     );

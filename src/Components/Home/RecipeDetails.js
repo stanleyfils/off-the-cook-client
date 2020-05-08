@@ -1,12 +1,11 @@
-// get recipe book details
+// get recipe details
 
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import UpdateRecipeBook from "./UpdateRecipeBookService";
-import RecipeBookList from "./RecipeBookService";
+import UpdateRecipe from "./UpdateRecipe";
 
-class RecipeBookDetails extends Component {
+class RecipeDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,14 +15,13 @@ class RecipeBookDetails extends Component {
     };
   }
 
-  // React will call "componentDidMount()" automatically when PhoneDetails loads
+  // React will call "componentDidMount()" automatically when recipe details load
   componentDidMount() {
-    console.log(" = == = = =", this.props.match.params);
     const { params } = this.props.match;
 
     axios
       .get(
-        `http://localhost:3001/recipeBooks/${params.recipeBookId}`,
+        process.env.REACT_APP_SERVER_POINT + `recipes/${params.recipeId}`,
         this.state
       )
       .then((responseFromApi) => {
@@ -39,16 +37,29 @@ class RecipeBookDetails extends Component {
 
   render() {
     // console.log('state: ', this.state);
-    const { _id, title, description } = this.state;
+    const {
+      title,
+      prepTime,
+      cookTime,
+      servings,
+      ingredients,
+      directions,
+      nutrition,
+    } = this.state;
     return (
       <section>
         {this.state.showEdit ? (
-          <UpdateRecipeBook theRecipeBook={this.state} {...this.props} />
+          <UpdateRecipe theRecipe={this.state} {...this.props} />
         ) : (
           <section>
-            <h1> Recipe Book Details! </h1>
+            <h1> Recipe Details! </h1>
             <h2> {title} </h2>
-            <h4>Description: {description}</h4>
+            <h4>Prep Time: {prepTime}</h4>
+            <h4>Cook Time: {cookTime}</h4>
+            <h4>Servings: {servings}</h4>
+            <h4>Ingredients: {ingredients}</h4>
+            <h4>Directions: {directions}</h4>
+            <h4>Nutrition: {nutrition}</h4>
 
             {/* <ul>
               {specs.map((oneSpec, index) => {
@@ -57,17 +68,15 @@ class RecipeBookDetails extends Component {
             </ul> */}
 
             {/* {this.showEditForm()} */}
-            <button onClick={() => this.showEditForm()}>
-              Edit Recipe Book
-            </button>
-            {/* <button onClick={() => this.deleteRecipeBook()}>Delete Recipe Book</button> */}
+            <button onClick={() => this.showEditForm()}>Edit Recipe</button>
+            {/* <button onClick={() => this.deleteRecipe()}>Delete Recipe</button> */}
           </section>
         )}
 
-        <Link to={"/recipeBooks"}>View Your Recipe Books</Link>
+        <Link to={"/recipes"}>View Your Recipes</Link>
       </section>
     );
   }
 }
 
-export default RecipeBookDetails;
+export default RecipeDetails;

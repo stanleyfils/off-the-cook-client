@@ -34,6 +34,7 @@ function Signup() {
         } = context.state;
         console.log("signup", username, email, password);
         const { handleSignupInput, handleSignupSubmit } = context;
+
         return (
           <>
             {isLoggedIn ? (

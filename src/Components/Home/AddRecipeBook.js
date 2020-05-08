@@ -9,32 +9,20 @@ class AddRecipeBook extends Component {
     description: "",
   };
 
-  submit = (event) => {
-    event.preventDefault();
-
-    axios
-      .post("http://localhost:3001/recipeBooks", this.state)
-      .then((newlyCreatedRecipeBookFromAPI) => {
-        console.log({ newlyCreatedRecipeBookFromAPI });
-
-        this.props.updateState();
-        this.setState({
-          title: "",
-          description: "",
-        });
-      })
-      .catch((err) => console.log({ err }));
-  };
-
-  handleChange = (event) => {
+  handleInput = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+
+  createRecipeBook = (event) => {
+    event.preventDefault();
+    this.props.addNewRecipeBook(this.state);
   };
 
   render() {
     return (
       <div>
-        <form onSubmit={this.submit}>
+        <form onSubmit={(event) => this.createRecipeBook(event)}>
           <label>Recipe Book Title:</label>
           <input
             type="text"
@@ -43,15 +31,15 @@ class AddRecipeBook extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label>Prep Time:</label>
+          <label>Description</label>
           <input
-            type="number"
+            type="text"
             name="description"
             value={this.state.description}
             onChange={this.handleChange}
           />
           <br />
-          <input type="submit" value="Add Recipe Book" />
+          <button type="submit" value="Add Recipe Book" />
         </form>
       </div>
     );

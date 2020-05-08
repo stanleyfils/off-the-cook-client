@@ -8,17 +8,17 @@ import Navbar from "../Navbar/Navbar";
 import Collections from "../Home/Collections";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-function Home() {
+const Home = ({ search }) => {
   return (
     <section>
       <div className="App">
         <Navbar />
         <Header />
-        <SearchBar />
+        <SearchBar search={search} />
         <Collections />
       </div>
     </section>
   );
-}
+};
 
 export default Home;

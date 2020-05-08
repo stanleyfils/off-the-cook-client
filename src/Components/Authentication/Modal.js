@@ -67,9 +67,9 @@ export default function TransitionsModal() {
                     <p id="transition-modal-description">
                       Already have an account?
                     </p>
-                    <LoginButton type="button" />
-                    {/* <Link to="/login">Log In</Link> */}
-                    {/* <button>Log In</button> */}
+                    <Link to="/login">
+                      <LoginButton type="button" />
+                    </Link>
                   </div>
                 </Fade>
               </Modal>
