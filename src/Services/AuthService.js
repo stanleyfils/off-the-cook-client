@@ -18,16 +18,19 @@ const AUTH_SERVICE = {
     //post must always have a 2nd argument. Make empty object if necessary
     return service.post("/api/signup", userData);
   },
+
   login(userData) {
     return service.post("/api/login", userData);
   },
+
   logout() {
     return service.post("/api/logout", {});
   },
+
   // this is the only get route. Get routes never have 2nd argument so empty onject is required.
   getUser() {
     // console.log("hellooooo");
-    return service.get("/api/isLoggedIn");
+    return service.get("/api/isLoggedIn", {});
   },
 };
 

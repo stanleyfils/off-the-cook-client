@@ -3,3 +3,7 @@
 .serviceButton {
   margin: 20px;
 }
+
+a:link {
+  text-decoration: none;
+}

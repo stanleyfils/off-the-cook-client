@@ -9,15 +9,15 @@ class SearchBar extends Component {
   };
 
   handleChange = (event) => {
-    console.log(event.target.value);
     this.setState({ searchInput: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     // alert(`You typed: ${this.state.searchInput}`);
     event.preventDefault();
-    console.log(this.props);
-    this.props.search(this.state.searchInput);
+    // console.log(this.props);
+    await this.props.search(this.state.searchInput);
+    this.props.history.push("/showRecipes");
   };
 
   render() {
@@ -27,7 +27,7 @@ class SearchBar extends Component {
         <form onSubmit={this.handleSubmit}>
           <TextField
             id="outlined-basic"
-            label="search..."
+            label="search"
             variant="outlined"
             className="searchBar"
             type="text"
@@ -35,13 +35,15 @@ class SearchBar extends Component {
             placeholder="search recipes"
             onChange={this.handleChange}
           />
-          <Button variant="contained" color="primary" size="large">
+          <Button
+            onClick={this.handleSubmit}
+            variant="contained"
+            color="primary"
+            size="large"
+          >
             Search
           </Button>
         </form>
-        {/* <Button variant="contained" color="primary" size="large">
-          Surprise Me
-        </Button> */}
       </div>
     );
   }

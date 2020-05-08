@@ -3,10 +3,8 @@
 
 import React from "react";
 import "./Landing.css";
-import Header from "../Landing/Header";
-import SearchBar from "../Landing/SearchBar";
+import SearchBar from "../Home/SearchBar";
 import Navbar from "../Navbar/Navbar";
-import { Switch, Route, Redirect } from "react-router-dom";
 import WelcomeMessage from "../Landing/WelcomeMessage";
 
 function Landing() {
@@ -17,7 +15,6 @@ function Landing() {
         <section>
           <WelcomeMessage />
         </section>
-        <Header />
         <SearchBar />
       </div>
     </section>

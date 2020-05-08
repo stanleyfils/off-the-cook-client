@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import UpdateRecipeBook from "./UpdateRecipeBook";
-import RecipeBookList from "../../Services/RecipeBookService";
 
 class RecipeBookDetails extends Component {
   constructor(props) {
@@ -38,7 +37,7 @@ class RecipeBookDetails extends Component {
 
   render() {
     // console.log('state: ', this.state);
-    const { _id, title, description } = this.state;
+    const { title, description } = this.state;
     return (
       <section>
         {this.state.showEdit ? (

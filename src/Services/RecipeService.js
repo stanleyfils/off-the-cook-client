@@ -33,6 +33,11 @@ const RecipeService = {
     return service.get(`/recipes/${recipeId}`, { withCredentials: true });
   },
 
+  // GET route for getting the ingredients for a recipe
+  getRecipeIngredients(id) {
+    return service.post(`/ingredients/${id}`, { withCredentials: true });
+  },
+
   // POST route to delete a recipe
   deleteRecipe(recipeId) {
     return service.post(`/recipes/${recipeId}/delete`, {

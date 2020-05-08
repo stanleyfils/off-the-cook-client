@@ -25,14 +25,13 @@ function Signup() {
   return (
     <AuthContext.Consumer>
       {(context) => {
-        console.log("testing context!", context);
+        // console.log("testing context!", context);
 
         const {
           formSignup: { username, email, password },
-          message,
           isLoggedIn,
         } = context.state;
-        console.log("signup", username, email, password);
+        // console.log("signup", username, email, password);
         const { handleSignupInput, handleSignupSubmit } = context;
 
         return (

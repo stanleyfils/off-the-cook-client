@@ -24,9 +24,9 @@ class AuthProvider extends React.Component {
     // console.log("this is a test");
     AUTH_SERVICE.getUser()
       .then((responseFromServer) => {
-        // console.log("res: ", responseFromServer);
+        console.log("res: ", responseFromServer);
 
-        const { user } = responseFromServer.data;
+        const { user } = responseFromServer?.data;
 
         this.setState((prevState) => ({
           ...prevState,

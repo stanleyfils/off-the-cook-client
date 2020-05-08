@@ -1,9 +1,13 @@
+// controls home page "Collections" section and add recipe book icon/functionality
+
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 // import { green } from "@material-ui/core/colors";
 import Icon from "@material-ui/core/Icon";
 import "./Collections.css";
-import Footer from "../../home.nosync.png";
+// import Footer from "../../home.nosync.png";
+import AddRecipeBook from "./AddRecipeBook";
+import { Link } from "react-router-dom";
 
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -12,6 +16,8 @@ import Footer from "../../home.nosync.png";
 //     },
 //   },
 // }));
+
+// const AddCircleButton = () => {};
 
 export default function Collections() {
   //   const classes = useStyles();
@@ -22,9 +28,16 @@ export default function Collections() {
         <h2>Collections</h2>
         {/* <div className={classes.root}> */}
         <div>
-          <Icon className="iconButton" color="primary" style={{ fontSize: 50 }}>
-            add_circle
-          </Icon>
+          <Link to="/addRecipeBook">
+            <Icon
+              onClick={AddRecipeBook}
+              className="iconButton"
+              color="primary"
+              style={{ fontSize: 50 }}
+            >
+              add_circle
+            </Icon>
+          </Link>
         </div>
       </section>
       {/* <hr className="hrTag" /> */}

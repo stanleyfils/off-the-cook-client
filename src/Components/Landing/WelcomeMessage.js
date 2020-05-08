@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import banner from "../Home/header.nosync.jpg";
+import "./WelcomeMessage.css";
 
 export class WelcomeMessage extends Component {
   render() {
@@ -11,6 +13,7 @@ export class WelcomeMessage extends Component {
           Search our database of over 360,000 recipes to create your own recipe
           books, menus, and meal plans!
         </h4>
+        <img className="header-image" src={banner} alt="animated chefs" />
       </div>
     );
   }

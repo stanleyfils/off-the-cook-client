@@ -1,0 +1,21 @@
+/* CSS code to build custom login button that links to Login form */
+/* a:link,
+a:visited {
+  text-decoration: none;
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover,
+a:active {
+  background-color: red;
+} */
+
+/* CSS code to remove underline from link */
+a:link {
+  text-decoration: none;
+}

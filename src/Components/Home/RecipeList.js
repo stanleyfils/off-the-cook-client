@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AddRecipe from "./AddRecipeService";
-import { Route, Switch, Link } from "react-router-dom";
+// import AddRecipe from "./AddRecipe";
+import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 class RecipeList extends Component {
@@ -50,7 +50,6 @@ class RecipeList extends Component {
             <h2>
               <Link to={`/recipes/${recipe._id}`}>{recipe.recipeName}</Link>
             </h2>
-            {/* <h2>{recipe.Title}</h2> */}
             <h3>{recipe.title}</h3>
             {/* <h4>Prep Time: {recipe.prepTime}</h4>
             <h4>Cook Time: {recipe.cookTime}</h4>
