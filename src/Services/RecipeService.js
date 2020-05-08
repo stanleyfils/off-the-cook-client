@@ -32,6 +32,10 @@ class RecipeList extends Component {
   // here we call the function to make the axios call which gets all the recipes from the db, we must do this prior to the render in order to get the needed information so that we can use that information to display something in the component allowing axios to make its request and receive its response.
   componentDidMount() {
     this.getRecipeList();
+
+    axios.get(`./complexSearch`).then((res) => {
+      this.setState({ recipeList: res.data });
+    });
   }
 
   // this function will pass down to the add recipe child component which will allow us to update the state for the this (the parent) component and display the updated full list of recipes

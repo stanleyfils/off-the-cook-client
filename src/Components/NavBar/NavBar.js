@@ -15,6 +15,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import TransitionsModal from "../Authentication/Modal";
+import Button from "@material-ui/core/Button";
 // import SignupButton from "../Authentication/SignupButton";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/index";
@@ -213,15 +214,17 @@ export default function Navbar() {
           <AppBar position="static">
             <Toolbar>
               {/* SERVICE MENU BUTTON START */}
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleServiceMenuOpen}
-              >
-                <MenuIcon />
-              </IconButton>
+              {context.state.isLoggedIn ? (
+                <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={handleServiceMenuOpen}
+                >
+                  <MenuIcon />
+                </IconButton>
+              ) : null}
               {/* SERVICE MENU BUTTON END */}
 
               <Typography className={classes.title} variant="h6" noWrap>

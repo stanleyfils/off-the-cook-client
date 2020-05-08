@@ -5,6 +5,7 @@ import "./Home.css";
 import Header from "../Home/Header";
 import SearchBar from "../Home/SearchBar";
 import Navbar from "../Navbar/Navbar";
+import Collections from "../Home/Collections";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 function Home() {
@@ -14,6 +15,7 @@ function Home() {
         <Navbar />
         <Header />
         <SearchBar />
+        <Collections />
       </div>
     </section>
   );
