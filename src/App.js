@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Landing from "./Components/LandingPage/Landing";
 import Home from "./Components/Home/Home";
 import Signup from "./Components/Authentication/Signup";
@@ -12,6 +12,7 @@ import ShowRecipes from "./Components/Home/RecipesSearch/ShowRecipes";
 import RecipeBookService from "./Services/RecipeBookService";
 import RecipeBookDetails from "./Components/Home/RecipeBooks/RecipeBookDetails";
 import RecipeBookList from "./Components/Home/RecipeBooks/RecipeBookList";
+import axios from "axios";
 
 class App extends Component {
   state = {
@@ -23,18 +24,30 @@ class App extends Component {
   componentDidMount() {
     this.fetchRecipeBooks();
   }
+
   fetchRecipeBooks() {
-    // console.log("Im in App.js");
     RecipeBookService.getRecipeBooks()
       .then((recipeBooks) => {
         console.log("recipeBooks", recipeBooks);
         this.setState({
           recipeBooks: recipeBooks.data,
         });
-        // window.location.reload();
       })
       .catch((err) => console.log("error while getting recipe books", err));
   }
+
+  deleteRecipeBook = (recipeBookId) => {
+    axios
+      .post(
+        process.env.REACT_APP_SERVER_POINT +
+          `/recipeBooks/${recipeBookId}/delete`
+      )
+      .then((messageAfterDeletingRecipeBook) => {
+        console.log({ messageAfterDeletingRecipeBook });
+        this.fetchRecipeBooks();
+      })
+      .catch((err) => console.log({ err }));
+  };
 
   addRecipe = (recipeId, recipeBookId) => {
     const newRecipe = this.state.recipes.find(
@@ -87,6 +100,7 @@ class App extends Component {
                           {...props}
                           fetchRecipeBooks={this.fetchRecipeBooks}
                           recipeBooks={this.state.recipeBooks}
+                          deleteRecipeBook={this.deleteRecipeBook}
                         />
                       )}
                     />

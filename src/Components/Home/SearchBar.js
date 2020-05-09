@@ -23,7 +23,7 @@ class SearchBar extends Component {
   render() {
     const { searchInput } = this.state;
     return (
-      <div id="mydiv">
+      <div>
         <form onSubmit={this.handleSubmit}>
           <TextField
             id="outlined-basic"
@@ -35,8 +35,9 @@ class SearchBar extends Component {
             placeholder="search recipes"
             onChange={this.handleChange}
           />
+          <br />
           <Button
-            className="rolloverIconsButton"
+            className="searchButton"
             onClick={this.handleSubmit}
             variant="contained"
             color="primary"

@@ -6,10 +6,11 @@ import axios from "axios";
 class UpdateRecipeBook extends Component {
   constructor(props) {
     super(props);
-    const { title, description } = this.props.theRecipeBook;
+    const { title, description, recipes } = this.props.theRecipeBook;
     this.state = {
       title,
       description,
+      recipes,
     };
   }
 
@@ -56,7 +57,7 @@ class UpdateRecipeBook extends Component {
             value={title}
             onChange={(event) => this.genericSync(event)}
             type="text"
-            name="Title"
+            name="title"
           />
 
           <label> Description: </label>

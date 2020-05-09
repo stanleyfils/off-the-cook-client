@@ -1,8 +1,9 @@
 .searchBar {
   width: 500px;
-  margin-top: 50%;
+  /* margin-top: 50%; */
+  margin-bottom: 500px;
 }
 
-#mydiv {
-  text-align: center;
+.searchButton {
+  margin-top: 100px;
 }

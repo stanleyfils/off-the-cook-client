@@ -20,11 +20,11 @@ class RecipeBookDetails extends Component {
   // React will call "componentDidMount()" automatically when PhoneDetails loads
   componentDidMount() {
     const { params } = this.props.match;
-
+    // console.log("component mounting: ");
     axios
       .get(
         process.env.REACT_APP_SERVER_POINT +
-          `recipeBook/${params.recipeBookId}`,
+          `/recipeBooks/${params.recipeBookId}`,
         this.state
       )
       .then((responseFromApi) => {
@@ -38,18 +38,46 @@ class RecipeBookDetails extends Component {
     this.setState({ showEdit: true });
   }
 
+  // deleteRecipeBook = (recipeBookId) => {
+  //   axios
+  //     .post(
+  //       process.env.REACT_APP_SERVER_POINT +
+  //         `/recipeBooks/${recipeBookId}/delete`
+  //     )
+  //     .then((messageAfterDeletingRecipeBook) => {
+  //       console.log({ messageAfterDeletingRecipeBook });
+  //       this.props.fetchRecipeBooks();
+  //       this.props.history.push("/home");
+  //     })
+  //     .catch((err) => console.log({ err }));
+  // };
+
   render() {
-    // console.log('state: ', this.state);
-    const { _id, title, description } = this.state;
-    return (
+    // console.log("state: ", this.state);
+    const { title, description, recipes } = this.state;
+    // console.log("Look here!!!", { title, recipes });
+    return this.state.recipes ? (
       <section>
         {this.state.showEdit ? (
           <UpdateRecipeBook theRecipeBook={this.state} {...this.props} />
         ) : (
           <section>
+            <div>
+              <Button
+                className="back-btn"
+                onClick={() => this.props.history.goBack()}
+              >
+                Back
+              </Button>
+            </div>
             <h1> Title: {title} </h1>
             <h2> {title} </h2>
             <h4>Description: {description}</h4>
+            <ul>
+              {recipes.map((recipe, i) => (
+                <li key={i}>{recipe.title}</li>
+              ))}
+            </ul>
 
             {/* <ul>
               {specs.map((oneSpec, index) => {
@@ -66,12 +94,25 @@ class RecipeBookDetails extends Component {
             >
               Edit Recipe Book
             </Button>
+            <br />
+            <Link
+              variant="contained"
+              to="/home"
+              color="primary"
+              size="small"
+              className="styleButton"
+              onClick={() => this.props.deleteRecipeBook(this.state._id)}
+            >
+              Delete
+            </Link>
             {/* <button onClick={() => this.deleteRecipeBook()}>Delete Recipe Book</button> */}
           </section>
         )}
 
         <Link to={"/recipeBooks"}>View Your Recipe Books</Link>
       </section>
+    ) : (
+      <h2>No Recipes to Display</h2>
     );
   }
 }
