@@ -4,12 +4,14 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import UpdateRecipeBook from "./UpdateRecipeBook";
+import Button from "@material-ui/core/Button";
 
 class RecipeBookDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showEdit: false,
+
       // we need the initial "specs" array to avoid an error with ".map()"
       //   recipeList: [],
     };
@@ -38,14 +40,14 @@ class RecipeBookDetails extends Component {
 
   render() {
     // console.log('state: ', this.state);
-    const { title, description } = this.state;
+    const { _id, title, description } = this.state;
     return (
       <section>
         {this.state.showEdit ? (
           <UpdateRecipeBook theRecipeBook={this.state} {...this.props} />
         ) : (
           <section>
-            <h1> Recipe Book Details! </h1>
+            <h1> Title: {title} </h1>
             <h2> {title} </h2>
             <h4>Description: {description}</h4>
 
@@ -56,9 +58,14 @@ class RecipeBookDetails extends Component {
             </ul> */}
 
             {/* {this.showEditForm()} */}
-            <button onClick={() => this.showEditForm()}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              onClick={() => this.showEditForm()}
+            >
               Edit Recipe Book
-            </button>
+            </Button>
             {/* <button onClick={() => this.deleteRecipeBook()}>Delete Recipe Book</button> */}
           </section>
         )}

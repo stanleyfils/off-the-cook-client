@@ -1,4 +1,4 @@
-// update recipe
+// update recipe book
 
 import React, { Component } from "react";
 import axios from "axios";
@@ -28,7 +28,7 @@ class UpdateRecipeBook extends Component {
     axios
       .post(
         process.env.REACT_APP_SERVER_POINT +
-          `/recipeBooks/${this.props.theRecipe._id}/update`,
+          `/recipeBooks/${this.props.theRecipeBook._id}/update`,
         this.state,
         { withCredentials: true } // FORCE axios to send cookies across domains
       )

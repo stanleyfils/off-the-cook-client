@@ -10,6 +10,8 @@ import AddRecipeBook from "./Components/Home/AddRecipeBook";
 import { AuthContext } from "./context/index";
 import ShowRecipes from "./Components/Home/ShowRecipes";
 import RecipeBookService from "./Services/RecipeBookService";
+import RecipeBookDetails from "./Components/Home/RecipeBookDetails";
+import RecipeBookList from "./Components/Home/RecipeBooks/RecipeBookList";
 
 class App extends Component {
   state = {
@@ -40,9 +42,7 @@ class App extends Component {
     );
     newRecipe.bookId = recipeBookId;
     RecipeService.addRecipe(newRecipe)
-      .then((recipe) => {
-        // console.log("New Recipe: ", recipe.data);
-      })
+      .then((recipe) => {})
       .catch((err) => console.log("Error while adding a recipe: ", err));
   };
 
@@ -81,6 +81,17 @@ class App extends Component {
                   <>
                     <Route
                       exact
+                      path="/recipeBooks/:recipeBookId"
+                      render={(props) => (
+                        <RecipeBookDetails
+                          {...props}
+                          fetchRecipeBooks={this.fetchRecipeBooks}
+                          recipeBooks={this.state.recipeBooks}
+                        />
+                      )}
+                    />
+                    <Route
+                      exact
                       path="/showRecipes"
                       render={(props) => (
                         <ShowRecipes
@@ -103,6 +114,11 @@ class App extends Component {
                           recipeBooks={this.state.recipeBooks}
                         />
                       )}
+                    />
+                    <Route
+                      exact
+                      path="/recipeBooks"
+                      component={RecipeBookList}
                     />
                     <Route
                       exact
