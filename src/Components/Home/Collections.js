@@ -6,7 +6,7 @@ import React from "react";
 import Icon from "@material-ui/core/Icon";
 import "./Collections.css";
 // import Footer from "../../home.nosync.png";
-import AddRecipeBook from "./AddRecipeBook";
+import AddRecipeBook from "./RecipeBooks/AddRecipeBook";
 import { Link } from "react-router-dom";
 
 // const useStyles = makeStyles((theme) => ({

@@ -6,11 +6,11 @@ import Home from "./Components/Home/Home";
 import Signup from "./Components/Authentication/Signup";
 import Login from "./Components/Authentication/Login";
 import RecipeService from "./Services/RecipeService";
-import AddRecipeBook from "./Components/Home/AddRecipeBook";
+import AddRecipeBook from "./Components/Home/RecipeBooks/AddRecipeBook";
 import { AuthContext } from "./context/index";
 import ShowRecipes from "./Components/Home/ShowRecipes";
 import RecipeBookService from "./Services/RecipeBookService";
-import RecipeBookDetails from "./Components/Home/RecipeBookDetails";
+import RecipeBookDetails from "./Components/Home/RecipeBooks/RecipeBookDetails";
 import RecipeBookList from "./Components/Home/RecipeBooks/RecipeBookList";
 
 class App extends Component {
