@@ -23,7 +23,7 @@ class SearchBar extends Component {
   render() {
     const { searchInput } = this.state;
     return (
-      <div className="rolloverIcons">
+      <div id="mydiv">
         <form onSubmit={this.handleSubmit}>
           <TextField
             id="outlined-basic"
@@ -36,6 +36,7 @@ class SearchBar extends Component {
             onChange={this.handleChange}
           />
           <Button
+            className="rolloverIconsButton"
             onClick={this.handleSubmit}
             variant="contained"
             color="primary"

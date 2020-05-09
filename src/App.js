@@ -15,6 +15,35 @@ class App extends Component {
   state = {
     search: "",
     recipes: [],
+    recipeBooks: [],
+  };
+
+  componentDidMount() {
+    this.fetchRecipeBooks();
+  }
+  fetchRecipeBooks() {
+    // console.log("Im in App.js");
+    RecipeBookService.getRecipeBooks()
+      .then((recipeBooks) => {
+        console.log("recipeBooks", recipeBooks);
+        this.setState({
+          recipeBooks: recipeBooks.data,
+        });
+        // window.location.reload();
+      })
+      .catch((err) => console.log("error while getting recipe books", err));
+  }
+
+  addRecipe = (recipeId, recipeBookId) => {
+    const newRecipe = this.state.recipes.find(
+      (recipe) => recipe.id === recipeId
+    );
+    newRecipe.bookId = recipeBookId;
+    RecipeService.addRecipe(newRecipe)
+      .then((recipe) => {
+        // console.log("New Recipe: ", recipe.data);
+      })
+      .catch((err) => console.log("Error while adding a recipe: ", err));
   };
 
   // get recipes from external API
@@ -29,16 +58,15 @@ class App extends Component {
 
   // create new recipe book
   createNewRecipeBook = (title, description) => {
-    RecipeBookService.addNewRecipeBook(title, description)
+    RecipeBookService.createRecipeBook(title, description)
       .then((response) => {
         this.setState({
-          recipeBooks: response.data,
+          recipeBooks: [...this.state.recipeBooks, response.data],
         });
+        console.log(this.state.recipeBooks);
       })
       .catch((err) =>
-        console.log("Error while creating a new Recipe Book: ", {
-          err: err.response,
-        })
+        console.log("Error while creating a new Recipe Book: ", err)
       );
   };
 
@@ -55,7 +83,12 @@ class App extends Component {
                       exact
                       path="/showRecipes"
                       render={(props) => (
-                        <ShowRecipes {...props} recipes={this.state.recipes} />
+                        <ShowRecipes
+                          {...props}
+                          recipes={this.state.recipes}
+                          recipeBooks={this.state.recipeBooks}
+                          addRecipe={this.addRecipe}
+                        />
                       )}
                     />
                     <Route
@@ -65,14 +98,21 @@ class App extends Component {
                         <Home
                           {...props}
                           search={this.searchRecipes}
-                          recipes={this.state.recipes}
+                          // recipes={this.state.recipes}
+                          fetchRecipeBooks={this.fetchRecipeBooks}
+                          recipeBooks={this.state.recipeBooks}
                         />
                       )}
                     />
                     <Route
                       exact
                       path="/addRecipeBook"
-                      component={AddRecipeBook}
+                      render={(props) => (
+                        <AddRecipeBook
+                          {...props}
+                          createNewRecipeBook={this.createNewRecipeBook}
+                        />
+                      )}
                     />
                   </>
                 ) : (

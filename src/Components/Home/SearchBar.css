@@ -3,7 +3,6 @@
   margin-top: 50%;
 }
 
-.rolloverIcons Button {
-  margin: 20px;
+#mydiv {
+  text-align: center;
 }
-/* This will add a margin to every <Button> item inside the rollovericons class. */

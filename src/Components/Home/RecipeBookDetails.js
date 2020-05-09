@@ -21,7 +21,8 @@ class RecipeBookDetails extends Component {
 
     axios
       .get(
-        `http://localhost:3001/recipeBooks/${params.recipeBookId}`,
+        process.env.REACT_APP_SERVER_POINT +
+          `recipeBook/${params.recipeBookId}`,
         this.state
       )
       .then((responseFromApi) => {

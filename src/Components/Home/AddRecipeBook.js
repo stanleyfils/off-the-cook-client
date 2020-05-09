@@ -6,10 +6,13 @@ import TextField from "@material-ui/core/TextField";
 import "./AddRecipeBook.css";
 
 class AddRecipeBook extends Component {
-  state = {
-    title: "",
-    description: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      description: "",
+    };
+  }
 
   handleInput = (event) => {
     const { name, value } = event.target;
@@ -18,12 +21,19 @@ class AddRecipeBook extends Component {
 
   createRecipeBook = (event) => {
     event.preventDefault();
-    this.props.addNewRecipeBook(this.state);
+    this.props.createNewRecipeBook(this.state);
+    this.props.history.push("/Home");
   };
 
   render() {
     return (
       <div>
+        <Button
+          className="back-btn"
+          onClick={() => this.props.history.goBack()}
+        >
+          Back
+        </Button>
         <form onSubmit={(event) => this.createRecipeBook(event)}>
           {/* <label>Recipe Book Title: </label> */}
           <TextField
@@ -34,7 +44,7 @@ class AddRecipeBook extends Component {
             type="text"
             name="title"
             value={this.state.title}
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <br />
           {/* <label>Description: </label> */}
@@ -46,7 +56,7 @@ class AddRecipeBook extends Component {
             type="text"
             name="description"
             value={this.state.description}
-            onChange={this.handleChange}
+            onChange={this.handleInput}
           />
           <br />
           <Button

@@ -19,9 +19,17 @@ import { Link } from "react-router-dom";
 
 // const AddCircleButton = () => {};
 
-export default function Collections() {
-  //   const classes = useStyles();
-
+export default function Collections(props) {
+  let books;
+  if (props.recipeBooks) {
+    books = props.recipeBooks.map((book, i) => {
+      return (
+        <div key={i}>
+          <Link to={`/recipeBooks/${book._id}`}>{book.title}</Link>
+        </div>
+      );
+    });
+  }
   return (
     <>
       <section className="sectionBackground">
@@ -38,9 +46,9 @@ export default function Collections() {
               add_circle
             </Icon>
           </Link>
+          <div>{books}</div>
         </div>
       </section>
-      {/* <hr className="hrTag" /> */}
     </>
   );
 }
