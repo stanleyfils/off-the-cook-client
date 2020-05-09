@@ -6,7 +6,7 @@ import Header from "./Header";
 import SearchBar from "./SearchBar";
 import Navbar from "../Navbar/Navbar";
 import Collections from "./Collections";
-import ShowRecipes from "./ShowRecipes";
+import ShowRecipes from "./RecipesSearch/ShowRecipes";
 
 const Home = (props) => {
   console.log("props in home", props);

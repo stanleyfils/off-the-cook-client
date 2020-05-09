@@ -5,7 +5,7 @@ import React from "react";
 import "./Landing.css";
 import SearchBar from "../Home/SearchBar";
 import Navbar from "../Navbar/Navbar";
-import WelcomeMessage from "../Landing/WelcomeMessage";
+import WelcomeMessage from "../LandingPage/WelcomeMessage";
 
 function Landing() {
   return (

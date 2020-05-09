@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import Landing from "./Components/Home/Landing";
+import Landing from "./Components/LandingPage/Landing";
 import Home from "./Components/Home/Home";
 import Signup from "./Components/Authentication/Signup";
 import Login from "./Components/Authentication/Login";
 import RecipeService from "./Services/RecipeService";
 import AddRecipeBook from "./Components/Home/RecipeBooks/AddRecipeBook";
 import { AuthContext } from "./context/index";
-import ShowRecipes from "./Components/Home/ShowRecipes";
+import ShowRecipes from "./Components/Home/RecipesSearch/ShowRecipes";
 import RecipeBookService from "./Services/RecipeBookService";
 import RecipeBookDetails from "./Components/Home/RecipeBooks/RecipeBookDetails";
 import RecipeBookList from "./Components/Home/RecipeBooks/RecipeBookList";
