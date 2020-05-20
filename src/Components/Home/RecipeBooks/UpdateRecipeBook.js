@@ -2,6 +2,8 @@
 
 import React, { Component } from "react";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 class UpdateRecipeBook extends Component {
   constructor(props) {
@@ -35,7 +37,7 @@ class UpdateRecipeBook extends Component {
       )
       .then((response) => {
         //   instead of using <Redirect /> we use this.props.history.push()
-        this.props.history.push("/recipeBooks");
+        // this.props.history.push("/home");
       })
       .catch((err) => {
         console.log("Update Recipe Book ERROR", err);
@@ -49,6 +51,12 @@ class UpdateRecipeBook extends Component {
     const { title, description } = this.state;
     return (
       <section>
+        <Button
+          className="back-btn"
+          onClick={() => this.props.history.goBack()}
+        >
+          Back
+        </Button>
         <h2>Edit: {title} </h2>
 
         <form onSubmit={(event) => this.handleSubmit(event)}>
@@ -68,7 +76,7 @@ class UpdateRecipeBook extends Component {
             name="description"
           />
 
-          <button> Save </button>
+          <button>Save</button>
         </form>
       </section>
     );

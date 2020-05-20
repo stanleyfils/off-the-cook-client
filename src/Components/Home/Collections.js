@@ -8,6 +8,7 @@ import "./Collections.css";
 // import Footer from "../../home.nosync.png";
 import AddRecipeBook from "./RecipeBooks/AddRecipeBook";
 import { Link } from "react-router-dom";
+// import Button from "@material-ui/core/Button";
 
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -46,7 +47,19 @@ export default function Collections(props) {
               add_circle
             </Icon>
           </Link>
-          <div>{books}</div>
+          <br />
+          <br />
+
+          <div>
+            <Link
+              // variant="contained"
+              // color="default"
+              // href="#contained-buttons"
+              className="button-button a"
+            >
+              {books}
+            </Link>
+          </div>
         </div>
       </section>
     </>

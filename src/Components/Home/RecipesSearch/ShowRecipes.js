@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./ShowRecipes.css";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 class showRecipes extends Component {
   state = {
@@ -10,7 +11,7 @@ class showRecipes extends Component {
   handleSelectChange = (e) => {
     const { value } = e.target;
     if (value === "new") {
-      this.props.history.push("/new-recipebook");
+      this.props.history.push("/addRecipeBook");
     } else {
       this.setState({
         bookId: value,
@@ -35,7 +36,7 @@ class showRecipes extends Component {
           {recipes.map((recipe) => {
             // console.log("Image", recipe.image);
             return (
-              <div className="recipe-box" key={recipe.id}>
+              <div className="recipes" key={recipe.id}>
                 <img
                   src={`https://spoonacular.com/recipeImages/${recipe.image}`}
                   alt={recipe.title}
@@ -68,6 +69,8 @@ class showRecipes extends Component {
                       this.props.addRecipe(recipe.id, this.state.bookId)
                     }
                     className="fas fa-plus fa-fw"
+                    to="/home"
+                    component={Link}
                   ></i>
                 </div>
               </div>

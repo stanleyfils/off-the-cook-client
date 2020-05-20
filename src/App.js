@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Landing from "./Components/LandingPage/Landing";
 import Home from "./Components/Home/Home";
 import Signup from "./Components/Authentication/Signup";

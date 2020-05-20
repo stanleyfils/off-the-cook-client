@@ -38,23 +38,10 @@ class RecipeBookDetails extends Component {
     this.setState({ showEdit: true });
   }
 
-  // deleteRecipeBook = (recipeBookId) => {
-  //   axios
-  //     .post(
-  //       process.env.REACT_APP_SERVER_POINT +
-  //         `/recipeBooks/${recipeBookId}/delete`
-  //     )
-  //     .then((messageAfterDeletingRecipeBook) => {
-  //       console.log({ messageAfterDeletingRecipeBook });
-  //       this.props.fetchRecipeBooks();
-  //       this.props.history.push("/home");
-  //     })
-  //     .catch((err) => console.log({ err }));
-  // };
-
   render() {
     // console.log("state: ", this.state);
     const { title, description, recipes } = this.state;
+
     // console.log("Look here!!!", { title, recipes });
     return this.state.recipes ? (
       <section>
@@ -70,8 +57,7 @@ class RecipeBookDetails extends Component {
                 Back
               </Button>
             </div>
-            <h1> Title: {title} </h1>
-            <h2> {title} </h2>
+            <h1>Recipe Book: {title} </h1>
             <h4>Description: {description}</h4>
             <ul>
               {recipes.map((recipe, i) => (
@@ -95,17 +81,21 @@ class RecipeBookDetails extends Component {
               Edit Recipe Book
             </Button>
             <br />
-            <Link
+            <Button
+              href="#contained-buttons"
+              component={Link}
               variant="contained"
               to="/home"
-              color="primary"
+              color="default"
               size="small"
               className="styleButton"
               onClick={() => this.props.deleteRecipeBook(this.state._id)}
             >
               Delete
-            </Link>
-            {/* <button onClick={() => this.deleteRecipeBook()}>Delete Recipe Book</button> */}
+            </Button>
+            {/* <button onClick={() => this.props.deleteRecipeBook(this.state._id)}>
+              Delete Recipe Book
+            </button> */}
           </section>
         )}
 
