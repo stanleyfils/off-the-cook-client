@@ -23,7 +23,7 @@ export default function SignupButton(props) {
         size="medium"
         onClick={props.handleOpen}
       >
-        Signup
+        Sign Up
       </Button>
     </div>
   );

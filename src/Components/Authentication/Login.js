@@ -4,7 +4,6 @@ import TextField from "@material-ui/core/TextField";
 import "./Signup.css";
 import "./Login.css";
 import Button from "@material-ui/core/Button";
-// import AuthProvider from '../../context/index';
 import { AuthContext } from "../../context/index";
 import { Redirect } from "react-router-dom";
 
@@ -39,6 +38,7 @@ function Login() {
               <div>
                 <h1>Login</h1>
                 <form
+                  id="loginForm"
                   onSubmit={handleLoginSubmit}
                   className={classes.root}
                   noValidate
@@ -68,6 +68,7 @@ function Login() {
                   />
                   <br />
                   <Button
+                    id="loginFormButton"
                     onClick={handleLoginSubmit}
                     variant="contained"
                     color="primary"

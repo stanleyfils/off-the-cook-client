@@ -19,3 +19,7 @@ a:active {
 a:link {
   text-decoration: none;
 }
+
+#loginForm {
+  display: none;
+}

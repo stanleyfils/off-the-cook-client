@@ -42,7 +42,7 @@ export default function TransitionsModal() {
     <AuthContext.Consumer>
       {(context) => (
         <div>
-          {/* pass prop from signupButton.js to cal onClick method */}
+          {/* pass prop from signupButton.js to call onClick method */}
           {context.state.isLoggedIn ? null : (
             <>
               <SignupButton type="button" handleOpen={handleOpen} />
@@ -64,12 +64,14 @@ export default function TransitionsModal() {
                       Sign Up
                     </h2>
                     <Signup className="input" />
+                    {/* <p id="transition-modal-description"> */}
                     <p id="transition-modal-description">
                       Already have an account?
                     </p>
-                    <Link to="/login">
+                    {/* <Link to="/login">
                       <LoginButton type="button" />
-                    </Link>
+                    </Link> */}
+                    <LoginButton type="button" />
                   </div>
                 </Fade>
               </Modal>

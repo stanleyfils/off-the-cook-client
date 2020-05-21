@@ -72,7 +72,7 @@ class RecipeBookList extends Component {
   render() {
     return (
       <div>
-        {/* <AddRecipeBooK updateState={this.newRecipeBooKAdded} /> */}
+        {/* <AddRecipeBooK updateState={this.newRecipeBookAdded} /> */}
         <hr />
         {this.state.recipeBookList && this.showRecipeBooks()}
       </div>
