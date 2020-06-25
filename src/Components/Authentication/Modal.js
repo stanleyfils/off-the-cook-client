@@ -11,6 +11,7 @@ import SignupButton from "./SignupButton";
 import LoginButton from "./LoginButton";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/index";
+import Toggle from "../Authentication/Toggle";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -64,13 +65,9 @@ export default function TransitionsModal() {
                       Sign Up
                     </h2>
                     <Signup className="input" />
-                    {/* <p id="transition-modal-description"> */}
                     <p id="transition-modal-description">
                       Already have an account?
                     </p>
-                    {/* <Link to="/login">
-                      <LoginButton type="button" />
-                    </Link> */}
                     <LoginButton type="button" />
                   </div>
                 </Fade>
